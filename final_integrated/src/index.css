@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+/* add this so landing page's landing-mode toggle works and other pages behave normally */
+body.landing-mode {
+  display: block !important;
+  justify-content: normal !important;
+  align-items: normal !important;
+  height: auto !important;
+}
+
+/* original centering only when NOT landing-mode */
+body:not(.landing-mode) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}

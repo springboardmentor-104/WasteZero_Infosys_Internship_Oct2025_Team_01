@@ -1,0 +1,171 @@
+/* src/pages/OriginalStyles.css */
+/* Converted from Tailwind-containing CSS to plain CSS (no Tailwind required) */
+
+/* Reset outline rule previously using @apply */
+input, textarea, select, button {
+  outline: none;
+}
+input:focus, textarea:focus, select:focus, button:focus {
+  outline: none;
+}
+body.landing-mode { display: block !important; min-height: 100% !important; }
+
+/* ✨ MAIN PAGE LAYOUT FIX ✨ */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: #d8e8f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* helper used in many places in your JSX */
+.min-h-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* ---- illustration card styles ---- */
+.recycle-wrapper {
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 70%, rgba(240, 250, 245, 0.7));
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.recycle-image {
+  width: 90%;
+  height: auto;
+  object-fit: contain;
+  background: transparent;
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.12));
+}
+
+/* subtle rounded border and inner highlight for the card */
+.card-border {
+  position: relative;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fbfefe 0%, #f3f7f8 100%);
+  border: 1px solid rgba(8, 32, 36, 0.06);
+  box-shadow: 0 28px 60px rgba(12, 40, 60, 0.07);
+  width: 90%;
+  max-width: 1100px;
+  height: auto;
+  padding: 3rem 4rem;
+  margin: 0 auto;
+}
+
+/* illustration styles */
+.illustration-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.illustration-circle {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.9) 0%, rgba(245,248,249,0.9) 40%, rgba(230,238,238,0.9) 100%);
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  padding: 26px;
+  box-shadow:
+    0 20px 40px rgba(20,50,60,0.06),
+    inset 0 6px 18px rgba(0,0,0,0.02);
+  border: 6px solid rgba(64, 179, 83, 0.06);
+  transform: translateX(-6px);
+}
+
+.illustration-img {
+  max-width: 78%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(20,50,60,0.06));
+}
+
+/* make illustration and card responsive */
+@media (max-width: 900px) {
+  .illustration-circle { width: 300px; height: 300px; padding: 20px; }
+  .illustration-img { max-width: 86%; }
+}
+
+/* 🌿 Uniform input box color and style */
+input,
+select {
+  background-color: #E4EFEA;
+  color: #1E2D24;
+  border: none;
+  border-radius: 9999px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+input::placeholder {
+  color: #5A6E62;
+}
+
+input:focus,
+select:focus {
+  background-color: #D8EAE1;
+  outline: 2px solid #3B7A57;
+  outline-offset: 2px;
+}
+
+/* 🌎 Background styling - remove background-image here, set it in JSX using imported asset */
+.app-bg {
+  /* background-image removed so webpack won't try to load url('/s.png') from CSS.
+     We'll set the background image inline in the React component using an imported image. */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+/* Font import (keeps your original font choice) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+/* Apply Montserrat to the entire site */
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* hero fade-in animation used by .hero-section */
+.hero-section {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: vz-fadeup 900ms ease-out 200ms forwards;
+}
+
+@keyframes vz-fadeup {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* subtle button shadow for CTA */
+.cta-btn {
+  box-shadow: 0 12px 30px rgba(16, 184, 93, 0.16);
+}
+
+/* responsive tweak for the small cards area on very small screens */
+@media (max-width: 640px) {
+  .hero-section h1 {
+    font-size: 1.9rem; /* fallback if you need further scaling on really small devices */
+  }
+}

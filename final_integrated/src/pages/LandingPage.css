@@ -1,0 +1,144 @@
+/* src/pages/LandingPage.css
+   Hero overlays limited to header.hero-wrapper so sections below are visible.
+*/
+
+html, body, #root { height: 100%; margin: 0; padding: 0; }
+
+/* root and body override for landing page mode */
+.landing-root { min-height: 100vh; width: 100%; font-family: "Poppins", sans-serif; color: white; }
+
+/* HERO WRAPPER — controls height of the hero only */
+.hero-wrapper {
+  position: relative;
+  width: 100%;
+  height: 92vh;          /* hero uses most of viewport but leaves a little room for scroll */
+  min-height: 640px;     /* prevents extremely small hero on large desktops */
+  display: block;
+  overflow: hidden;
+}
+
+/* BACKGROUND for hero: use cover but position to show the globe (center-right) */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;                 /* fills area while keeping aspect ratio */
+  background-position: center right;      /* show the globe at right side */
+  background-repeat: no-repeat;
+  z-index: 1;
+  /* optional parallax-like effect (works on desktop) */
+  background-attachment: fixed;
+}
+
+/* overlays only inside hero — do not use inset:0 across entire page */
+.hero-overlay-multiply {
+  position: absolute;
+  inset: 0;
+  background: rgba(6,78,59,0.45); /* slightly lighter so details show */
+  mix-blend-mode: multiply;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4,77,59,0.42), rgba(4,77,59,0.28) 35%, transparent 70%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* inner container inside hero for logo + content */
+.hero-inner {
+  position: relative;
+  z-index: 4;
+  height: 100%;
+  display: flex;
+  align-items: center;     /* vertically center content */
+  justify-content: center;
+}
+
+/* logo */
+.landing-logo { position: absolute; top: 22px; left: 22px; z-index: 6; }
+.landing-logo img { width: 110px; height: auto; display:block; }
+
+/* hero content */
+.landing-content {
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 48px 20px;
+  box-sizing: border-box;
+}
+
+/* heading sizes — responsive and limited */
+.landing-title {
+  font-weight: 800;
+  line-height: 1.02;
+  font-size: clamp(2.25rem, 6vw, 4rem); /* slightly smaller max so it doesn't blow up */
+  margin: 0 0 16px;
+  text-shadow: 0 14px 30px rgba(0,0,0,0.45);
+}
+.landing-title .accent {
+  background: linear-gradient(90deg,#9bf3b3,#6be79a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* supporting text */
+.landing-sub {
+  margin: 0 auto 26px;
+  max-width: 780px;
+  color: rgba(235,245,235,0.95);
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+  line-height: 1.6;
+}
+
+/* ctas */
+.landing-ctas { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:18px; }
+.btn-primary { background: linear-gradient(180deg,#19b86a,#12a65a); color: #fff; padding: 12px 26px; border-radius: 999px; font-weight: 700; text-decoration: none; display:inline-flex; align-items:center; gap:10px; box-shadow: 0 18px 30px rgba(8,96,64,0.25); }
+.btn-secondary { background: rgba(255,255,255,0.06); color: #f2fff2; padding: 11px 24px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); font-weight: 600; text-decoration: none; }
+
+/* stats + tags */
+.landing-stat { margin-top:20px; color:#dff7df; font-weight:600; }
+.landing-tags { margin-top:16px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+.tag { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); padding: 6px 12px; border-radius: 20px; color: #eef8ef; font-size: 13px; }
+
+/* ===== Sections below hero ===== */
+main { background: #071712; } /* subtle background base behind sections */
+.about-section, .features-section, .contact-section {
+  background: transparent;
+  color: #d6f3d6;
+  text-align: center;
+  padding: 80px 20px;
+}
+.about-section h2, .features-section h2, .contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 18px;
+  color: #81e6a8;
+}
+.about-section p, .features-section p, .contact-section p {
+  max-width: 820px;
+  margin: 0 auto 24px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #d2f0d7;
+}
+.contact-btn {
+  background: linear-gradient(180deg, #19b86a, #0e8c4e);
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.contact-btn:hover { background: #0a693b; }
+
+/* small screens tweak */
+@media (max-width: 700px) {
+  .hero-wrapper { height: 85vh; min-height: 520px; }
+  .landing-title { font-size: clamp(1.9rem, 7vw, 2.6rem); }
+  .landing-content { padding: 28px 16px; }
+}
