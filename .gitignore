@@ -1,0 +1,105 @@
+# ============================================================
+# 1. Node Modules
+# ============================================================
+node_modules/
+**/node_modules/
+
+# ============================================================
+# 2. Build / Production Output
+# ============================================================
+dist/
+build/
+out/
+out-tsc/
+coverage/
+.vite/
+
+# Angular specific
+.angular/
+.angular/cache/
+
+# React specific
+*.map
+*.html.map
+
+# Vite specific
+vite.config.ts.timestamp*
+vite.config.js.timestamp*
+*.mjs.timestamp*
+
+# ============================================================
+# 3. Environment Files (Very Important)
+# ============================================================
+.env
+.env.*       # .env.local, .env.development, etc
+.env.production
+.env.development
+.env.test
+
+# Angular environments
+src/environments/environment.ts
+src/environments/environment.prod.ts
+
+# ============================================================
+# 4. Logs
+# ============================================================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# ============================================================
+# 5. OS / Editor Files
+# ============================================================
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# ============================================================
+# 6. Temporary / Cache / Lock Files
+# ============================================================
+*.tmp
+*.temp
+*.tsbuildinfo
+*.cache
+*.bak
+*.swp
+*.swo
+
+# Babel / Webpack / Parcel cache
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+
+# ============================================================
+# 7. TypeScript
+# ============================================================
+*.tsbuildinfo
+*.d.ts.map
+
+# ============================================================
+# 8. Dependencies lock files (OPTIONAL)
+
+package-lock.json/
+yarn.lock/
+pnpm-lock.yaml/
+
+# ============================================================
+# 9. Testing Artifacts
+# ============================================================
+/coverage/
+test-output/
+junit.xml
